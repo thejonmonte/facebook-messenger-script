@@ -9,7 +9,7 @@ To install Python, please download the latest version for your OS from [the Pyth
 In order to use this program, you must have the FBChat package installed. To do so, go to your command line and run `pip install fbchat`. If Pip is not installed for whatever reason, please follow the [Pip documentation regarding installation](https://pip.pypa.io/en/stable/installing/ "Pip Installation").
 
 ## Logging In
-In order to log in, please create a `credentials.txt` file in the `facebook-messenger-script` directory (you can do this by going to the command line and running `touch credentials.txt`). Then, in the first line of the file, enter your email. For the second line, enter your password.
+In order to log in, please create a `credentials.txt` file in the `facebook-messenger-script` directory (you can do this by going to the command line and running `touch credentials.txt`). Then, in the first line of the file, enter your Facebook email. For the second line, enter your Facebook password.
 
 ## Finding Facebook Users' IDs
 Before sending the message, follow the instructions in `index.py` for finding the User ID for a Facebook user (I.E. uncomment the `search` code, comment out the `send` code, replace `<name of user>` with the desired Facebook username, run `python index.py`, and make sure the user is one of your friends and not a random person). For more information, please refer to the [documentation regarding looking up Facebook users' IDs](https://fbchat.readthedocs.io/en/stable/examples.html#examples "FBChat Docs"), specifically the **Fetching Information** section.
