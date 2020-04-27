@@ -2,7 +2,10 @@ from fbchat import Client
 from fbchat.models import *
 import time
 
-client = Client("<email>", "<password>")
+creds = open("credentials.txt", 'r')
+creds_lines = creds.readlines()
+
+client = Client(creds_lines[0].strip(), creds_lines[1].strip())
 
 print("Own id: {}".format(client.uid))
 seconds_delay = input("Enter the desired amount of delay between messages (in seconds)")
@@ -18,9 +21,10 @@ for line in file:
         client.send(Message(text=word), thread_id=client.uid, thread_type=ThreadType.USER)
         time.sleep(float(seconds_delay))
 
+# `searchForUsers` searches for the user and gives us a list of the results,
+# and then we just take the first one, aka. the most likely one:
+
 # Comment this out if you're trying to send a message!
-# # `searchForUsers` searches for the user and gives us a list of the results,
-# # and then we just take the first one, aka. the most likely one:
 # user = client.searchForUsers("<name of user>")[0]
 
 # print("user ID: {}".format(user.uid)) # Copy the User ID that appears
