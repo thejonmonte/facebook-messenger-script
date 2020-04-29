@@ -10,7 +10,7 @@ client = Client(creds_lines[0].strip(), creds_lines[1].strip())
 print("Own id: {}".format(client.uid))
 seconds_delay = input("Enter the desired amount of delay between messages (in seconds)")
 
-# Comment this out if you're trying to find the ID of a Facebook user!
+# Comment this out if you're trying to send a message!
 file = open("text.txt", 'r')
 for line in file: 
     if not line.strip():
@@ -24,7 +24,7 @@ for line in file:
 # `searchForUsers` searches for the user and gives us a list of the results,
 # and then we just take the first one, aka. the most likely one:
 
-# Comment this out if you're trying to send a message!
+# Comment this out if you're trying to find the ID of a Facebook user!
 # user = client.searchForUsers("<name of user>")[0]
 
 # print("user ID: {}".format(user.uid)) # Copy the User ID that appears
