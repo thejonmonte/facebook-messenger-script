@@ -6,7 +6,7 @@ import sys
 
 def send(uid, client):
     seconds_delay = input("\nEnter the desired amount of delay between messages (in seconds)\n")
-    file = open("text.txt", 'r')
+    file = open("text.txt", "r")
     for line in file: 
         if not line.strip():
             continue

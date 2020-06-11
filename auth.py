@@ -2,7 +2,7 @@ from fbchat import Client
 from fbchat.models import *
 
 def login():
-    creds = open("credentials.txt", 'r')
+    creds = open("credentials.txt", "r")
     creds_lines = creds.readlines()
 
     user = creds_lines[0].strip()
