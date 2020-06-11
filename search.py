@@ -6,8 +6,7 @@ import sys
 
 def displayOptions(index, client, users):
     while True:
-        option = input("\nWhat would you like to do?\n")
-        option = option.lower().strip()
+        option = input("\nWhat would you like to do?\n").strip().lower()
 
         if option == "c":
             return -2
@@ -31,8 +30,7 @@ def main():
     client = auth.login()
 
     while True:
-        personToSearch = input("\nPlease enter the name of the person that you want to search.\n")
-        personToSearch = personToSearch.strip()
+        personToSearch = input("\nPlease enter the name of the person that you want to search.\n").strip()
 
         # `searchForUsers` searches for the user and gives us a list of the results,
         # and then we just take the first one, aka. the most likely one:
