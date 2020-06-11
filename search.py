@@ -4,6 +4,30 @@ import message
 import auth
 import sys
 
+def displayOptions(index, client, users):
+    while True:
+        option = input("\nWhat would you like to do?\n")
+        option = option.lower().strip()
+
+        if option == "c":
+            return -2
+        else:
+            if not option:
+                return index + 1
+            elif option == "b":
+                if index > 0:
+                    return index - 1
+            elif option == "s":
+                message.send(users[index].uid, client)
+            elif option == "q":
+                client.logout()
+                sys.exit()
+            else:
+                print("\nPlease enter a valid command.")
+                continue
+            return -1
+        
+
 def main():
     client = auth.login()
 
@@ -13,14 +37,13 @@ def main():
 
         # `searchForUsers` searches for the user and gives us a list of the results,
         # and then we just take the first one, aka. the most likely one:
-
         index = 0
         users = client.searchForUsers(personToSearch)
 
         print("\nOptions:")
         print("Press 'Enter' to see the next user")
         print("Type 'b' to see the previous user")
-        print("Type 's' to send your messages to this user.")
+        print("Type 's' to send your messages to this user")
         print("Type 'c' to continue searching for another person")
         print("Type 'q' to quit the program\n")
 
@@ -34,23 +57,11 @@ def main():
             print("User's photo: {}".format(users[index].photo)) # Make sure the profile picture belongs to the one that your friend has
             print("Is user client's friend: {}".format(users[index].is_friend)) # Make sure that this user is your friend so you know it's not another random person
 
-            option = input("\nWhat would you like to do?\n")
-            option = option.lower().strip()
-
-            if not option:
-                index += 1
-                continue
-            elif "b" in option:
-                if index > 0:
-                    index -= 1
-                continue
-            elif "s" in option:
-                message.send(users[index].uid, client)
-            elif "c" in option:
+            option = displayOptions(index, client, users)
+            if option == -2:
                 break
-            elif "q" in option:
-                client.logout()
-                sys.exit()
+            elif option >= 0:
+                index = option
 
 if __name__ == "__main__":
     main()
