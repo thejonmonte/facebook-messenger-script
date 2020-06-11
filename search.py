@@ -26,7 +26,6 @@ def displayOptions(index, client, users):
                 print("\nPlease enter a valid command.")
                 continue
             return -1
-        
 
 def main():
     client = auth.login()

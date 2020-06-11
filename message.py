@@ -12,7 +12,6 @@ def send(uid, client):
             continue
         spaced = line.split(" ")
         for word in spaced:
-            # Replace client.uid with the User ID of the desired person you want to send the message(s) to on Facebook Messenger!
             client.send(Message(text=word), thread_id=uid, thread_type=ThreadType.USER)
             time.sleep(float(seconds_delay))
 
