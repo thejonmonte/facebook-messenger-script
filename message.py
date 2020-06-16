@@ -23,6 +23,7 @@ def main():
     client = auth.login()
     uid = sys.argv[1]
     send(uid, client)
+    client.logout()
 
 if __name__ == "__main__":
     main()
